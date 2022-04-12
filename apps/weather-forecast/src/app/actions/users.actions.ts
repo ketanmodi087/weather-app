@@ -27,7 +27,7 @@ export class UsersActions {
 			if (this.latitude && this.longitude && select === 'Hourly') {
 
 				this.gs
-					.getWhether(this.latitude, this.longitude, 'hourly')
+					.getWhether(this.latitude, this.longitude)
 					.subscribe((res: any) =>
 						this.ngRedux.dispatch({
 							type: UsersActions.GET_HOURLY_WHETHER,
@@ -39,7 +39,7 @@ export class UsersActions {
 			if (this.latitude && this.longitude && select === 'Daily') {
 
 				this.gs
-					.getWhether(this.latitude, this.longitude)
+					.getWhether(this.latitude, this.longitude, 'hourly')
 					.subscribe((res: any) => {
 						console.log("data", res);
 
